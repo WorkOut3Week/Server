@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators import gzip
 from django.http import StreamingHttpResponse
+from django.http import HttpResponse, JsonResponse
 import cv2
 import threading
 
@@ -26,7 +27,6 @@ class VideoCamera(object):
     def update(self):
         while True:
             (self.grabbed, self.frame) = self.video.read()
-
 
 def gen(camera):
     while True:
